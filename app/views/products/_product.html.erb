@@ -1,0 +1,32 @@
+<table>
+  <tr>
+    <td>
+      <b>Name:</b>
+    </td>
+    <td>
+      <%= @product.name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Price:</b>
+    </td>
+    <td>
+      <%= number_to_currency(@product.price) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Description:</b>
+    </td>
+    <td>
+      <%= @product.description %>
+    </td>
+  </tr>
+  <tfooter>
+    <td colspan="2" align="center">
+      <%= link_to "Edit", edit_product_path(product), {:remote => true, 'data-controls-modal' =>  "modal-window", 'data-backdrop' => true, 'data-keyboard' => true}%> |
+      <%= link_to 'Remove', @product, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tfooter>
+</table>

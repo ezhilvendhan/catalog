@@ -1,0 +1,48 @@
+<%= form_for @product do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_msg">
+      <h2>Submission failed [
+        <%= pluralize(@product.errors.count, "error") %>]
+      </h2>
+      <ul>
+        <% @product.errors.full_messages.each do |msg| %>
+        <li>
+          <%= msg %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table width="75%">
+    <tr>
+      <td align="right">
+        <%= f.label :name %>
+      </td>
+      <td>
+        <%= f.text_field :name %>
+      </td>
+    </tr>
+    <tr>
+      <td align="right">
+        <%= f.label :price %>
+      </td>
+      <td>
+        <%= f.number_field :price, min: 0 %>
+      </td>
+    </tr>
+    <tr>
+      <td align="right">
+        <%= f.label :description %>
+      </td>
+      <td>
+        <%= f.text_area :description, size: 1500, style: "width: '150%'" %>
+      </td>
+    </tr>
+    <tfoot>
+      <td></td>
+      <td>
+        <%= f.submit %>
+      </td>
+    </tfoot>
+  </table>
+<% end %>

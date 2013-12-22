@@ -1,0 +1,34 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+$tile-font: 12px;
+$tile-col-count: 4;
+$tile-col-gap: 10px;
+$tile-width: 80%;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+.tile {
+    font-size: $tile-font;
+    -moz-column-count: $tile-col-count;
+    -moz-column-gap: $tile-col-gap;
+    -webkit-column-count: $tile-col-count;
+    -webkit-column-gap: $tile-col-gap;
+    column-count: $tile-col-count;
+    column-gap: $tile-col-gap;
+    width: $tile-width;
+    text-align: center;
+    .content {
+        padding: 3px 0px 3px 0px;
+        display: inline-block;
+        background: linear-gradient(to bottom, #f6f6f8, #e4e4e6);
+        margin-bottom: 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 80%;
+        height: 10%;
+    }
+}

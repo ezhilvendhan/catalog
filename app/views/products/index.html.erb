@@ -1,0 +1,21 @@
+<%= render "layouts/modal" %>
+<%= render 'form' %>
+<br>
+<br>
+<br>
+<div class="tile">
+  <% @products.each do |product| %>
+  <span class="content">
+    <%= product.name %> <br/>
+    <%= number_to_currency(product.price) %><br/>
+    <%= product.description %><br/>
+<%= link_to "Show", product, {:remote => true, 'data-controls-modal' =>  "modal-window", 'data-backdrop' => true, 'data-keyboard' => true} %>
+    <%= link_to "Edit", edit_product_path(product), {:remote => true, 'data-controls-modal' =>  "modal-window", 'data-backdrop' => true, 'data-keyboard' => true}%>
+    <%= link_to "Remove",
+        product_path(product),
+        method: :delete,
+        data: {confirm: 'Are you sure to remove the product?'}
+    %>
+  </span>
+<% end %>
+</div>

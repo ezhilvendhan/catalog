@@ -1,0 +1,6 @@
+$modal = $('#productModal'),
+$modalBody = $('#productModal .modal-body'),
+$modalHeading = $('#productModal .modal-heading');
+$modalHeading.html("<%= @product.name %>");
+$modalBody.html("<%= escape_javascript(render @product) %>");
+$modal.modal();
